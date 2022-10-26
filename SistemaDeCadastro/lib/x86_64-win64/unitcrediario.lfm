@@ -1,0 +1,215 @@
+inherited FormCadastroCrediario: TFormCadastroCrediario
+  Left = 605
+  Top = 225
+  Width = 400
+  Caption = 'Cadastro Crediário'
+  ClientHeight = 0
+  ClientWidth = 0
+  inherited PageControl1: TPageControl
+    ActivePage = TabSheetListaCadastro
+    TabIndex = 0
+    inherited TabSheetListaCadastro: TTabSheet
+      inherited DBGrid1: TDBGrid
+        DataSource = DataSource1
+      end
+      inherited ButtonInserir: TButton
+        OnClick = nil
+      end
+      inherited ButtonAlterar: TButton
+        OnClick = nil
+      end
+    end
+    inherited TabSheetCadastrar: TTabSheet
+      inherited ButtonCancelar: TButton
+        OnClick = nil
+      end
+      inherited ButtonSalvar: TButton
+        OnClick = nil
+      end
+      object DBEdit1: TDBEdit[2]
+        Left = 8
+        Height = 23
+        Top = 37
+        Width = 128
+        DataField = 'codigocrediario'
+        DataSource = DataSource1
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 2
+      end
+      object DBEdit2: TDBEdit[3]
+        Left = 8
+        Height = 23
+        Top = 154
+        Width = 252
+        DataField = 'anotacao'
+        DataSource = DataSource1
+        MaxLength = 50
+        TabOrder = 3
+      end
+      object DBEdit4: TDBEdit[4]
+        Left = 8
+        Height = 23
+        Top = 93
+        Width = 252
+        DataField = 'valordivida'
+        DataSource = DataSource1
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object DBEdit6: TDBEdit[5]
+        Left = 152
+        Height = 23
+        Top = 37
+        Width = 219
+        DataField = 'nomecliente'
+        DataSource = DataSource1
+        MaxLength = 50
+        TabOrder = 5
+      end
+      object DBDateTimePicker1: TDBDateTimePicker[6]
+        Left = 280
+        Height = 23
+        Top = 154
+        Width = 83
+        DataField = 'datavencimento'
+        DataSource = DataSource1
+        ReadOnly = False
+        CenturyFrom = 1941
+        MaxDate = 2958465
+        MinDate = -53780
+        TabOrder = 6
+        TrailingSeparator = False
+        TextForNullDate = 'NULL'
+        LeadingZeros = True
+        Kind = dtkDate
+        TimeFormat = tf24
+        TimeDisplay = tdHMS
+        DateMode = dmComboBox
+        UseDefaultSeparators = True
+        HideDateTimeParts = []
+        MonthNames = 'Long'
+      end
+      object DBDateTimePicker2: TDBDateTimePicker[7]
+        Left = 280
+        Height = 23
+        Top = 91
+        Width = 83
+        DataField = 'datacompra'
+        DataSource = DataSource1
+        ReadOnly = False
+        CenturyFrom = 1941
+        MaxDate = 2958465
+        MinDate = -53780
+        TabOrder = 7
+        TrailingSeparator = False
+        TextForNullDate = 'NULL'
+        LeadingZeros = True
+        Kind = dtkDate
+        TimeFormat = tf24
+        TimeDisplay = tdHMS
+        DateMode = dmComboBox
+        UseDefaultSeparators = True
+        HideDateTimeParts = []
+        MonthNames = 'Long'
+      end
+      object StaticText1: TStaticText[8]
+        Left = 8
+        Height = 17
+        Top = 21
+        Width = 65
+        Caption = 'ID'
+        TabOrder = 8
+      end
+      object StaticText2: TStaticText[9]
+        Left = 152
+        Height = 17
+        Top = 21
+        Width = 105
+        Caption = 'Nome Cliente'
+        TabOrder = 9
+      end
+      object StaticText3: TStaticText[10]
+        Left = 8
+        Height = 17
+        Top = 77
+        Width = 97
+        Caption = 'Valor da Divida'
+        TabOrder = 10
+      end
+      object StaticText4: TStaticText[11]
+        Left = 280
+        Height = 17
+        Top = 74
+        Width = 99
+        Caption = 'Data da compra'
+        TabOrder = 11
+      end
+      object StaticText5: TStaticText[12]
+        Left = 280
+        Height = 17
+        Top = 133
+        Width = 73
+        Caption = 'Vencimento'
+        TabOrder = 12
+      end
+      object StaticText6: TStaticText[13]
+        Left = 8
+        Height = 17
+        Top = 133
+        Width = 65
+        Caption = 'Anotação'
+        TabOrder = 13
+      end
+    end
+  end
+  inherited Panel1: TPanel
+    Caption = 'Cadastro Crediário'
+  end
+  inherited SQLTransaction1: TSQLTransaction
+    Active = True
+  end
+  inherited SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'codigocrediario'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nomecliente'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'valordivida'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'datacompra'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'datavencimento'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'anotacao'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end>
+    Active = True
+    SQL.Strings = (
+      'select * from cadastro.crediario'
+      ''
+    )
+  end
+end

@@ -1,0 +1,130 @@
+object FormCadastroPai: TFormCadastroPai
+  Left = 545
+  Height = 325
+  Top = 213
+  Width = 583
+  Caption = 'Cadastro de ...'
+  ClientHeight = 325
+  ClientWidth = 583
+  OnCreate = FormCreate
+  LCLVersion = '2.2.4.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 280
+    Top = 49
+    Width = 400
+    ActivePage = TabSheetCadastrar
+    TabIndex = 1
+    TabOrder = 0
+    object TabSheetListaCadastro: TTabSheet
+      Caption = 'Lista Cadastro'
+      ClientHeight = 252
+      ClientWidth = 392
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 210
+        Top = 0
+        Width = 392
+        Color = clWindow
+        Columns = <>
+        TabOrder = 0
+      end
+      object ButtonExcluir: TButton
+        Left = 304
+        Height = 25
+        Top = 217
+        Width = 75
+        Caption = 'Excluir'
+        OnClick = ButtonExcluirClick
+        TabOrder = 1
+      end
+      object ButtonInserir: TButton
+        Left = 208
+        Height = 25
+        Top = 217
+        Width = 75
+        Caption = 'Inserir'
+        OnClick = ButtonInserirClick
+        TabOrder = 2
+      end
+      object ButtonAlterar: TButton
+        Left = 112
+        Height = 25
+        Top = 217
+        Width = 75
+        Caption = 'Alterar'
+        OnClick = ButtonAlterarClick
+        TabOrder = 3
+      end
+    end
+    object TabSheetCadastrar: TTabSheet
+      Caption = 'Cadastrar'
+      ClientHeight = 252
+      ClientWidth = 392
+      object ButtonCancelar: TButton
+        Left = 304
+        Height = 25
+        Top = 217
+        Width = 75
+        Caption = 'Cancelar'
+        OnClick = ButtonCancelarClick
+        TabOrder = 0
+      end
+      object ButtonSalvar: TButton
+        Left = 216
+        Height = 25
+        Top = 217
+        Width = 75
+        Caption = 'Salvar'
+        OnClick = ButtonSalvarClick
+        TabOrder = 1
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 56
+    Top = -7
+    Width = 399
+    BevelColor = clNone
+    Caption = 'Panel1'
+    Color = 16345213
+    ParentColor = False
+    TabOrder = 1
+  end
+  object PQConnection1: TPQConnection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'postgres'
+    KeepConnection = False
+    Password = '1234'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    CharSet = 'UTF-8'
+    HostName = 'localhost'
+    Left = 448
+    Top = 21
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = PQConnection1
+    Left = 448
+    Top = 89
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 447
+    Top = 229
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    AfterDelete = SQLQuery1AfterDelete
+    AfterPost = SQLQuery1AfterPost
+    Database = PQConnection1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 448
+    Top = 168
+  end
+end
